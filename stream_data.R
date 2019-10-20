@@ -6,18 +6,18 @@ library(IBrokers)
 con1 <- twsConnect(1)
 
 future <- twsFuture(symbol = "CL", exch = "NYMEX", expiry = "201912")
-reqMktDepth(con1, future, file='future.dat')
+reqMktData(con1, future, file='future.dat')
 
 
 ## pull call option
 con2 <- twsConnect(2)
 
 call <- twsFOP(symbol='CL',exch='NYMEX',expiry='20191115', right = 'C', strike = '53', multiplier = '1000') # LOZ9 C5300
-reqMktDepth(con2, call, file='call.dat')
+reqMktData(con2, call, file='call.dat')
 
 
 ## pull put option
 con3 <- twsConnect(3)
 
 put <- twsFOP(symbol='CL',exch='NYMEX',expiry='20191115', right = 'P', strike = '53', multiplier = '1000') # LOZ9 P5300
-reqMktDepth(con3, put, file='put.dat')
+reqMktData(con3, put, file='put.dat')
